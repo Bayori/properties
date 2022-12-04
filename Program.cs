@@ -1,20 +1,17 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
 namespace usersProject
 {
-    public class User
+    public class User // Класс для данных
     {
-        private string login, password, name;
+        private string login, password, name; // Поля
 
-		public string Login
+		public string propLogin // Свойства login
 		{
-			get 
-			{ 
-				return login; 
-			}
+			get { return login; } // Геттер, возвращает значение
 
-			set 
+            set // Сеттер, проверка данных
 			{
                 if (value.Length < 6 || value.Length > 20) // Длина строки
 				{ 
@@ -25,23 +22,23 @@ namespace usersProject
                 {
                     return;
                 }
-				login = value;
+
+				login = value; // При успешной проверке - присваивание значения
 			}
 		}
 
-		public string Password
+
+		public string propPassword // Свойства password
 		{
-			get 
-			{ 
-				return password;
-			}
-			set 
+			get { return password; } // Геттер, возвращает значение
+
+            set // Сеттер, проверка данных
 			{
                 if (value.Length < 6 || value.Length > 20) // Длина строки
                 {
                     return;
                 }
-                if (Regex.IsMatch(value, " ")) // Проверка на пробел.ы
+                if (Regex.IsMatch(value, " ")) // Проверка на пробелы
                 {
                     return;
                 }
@@ -49,28 +46,31 @@ namespace usersProject
                 {
                     return;
                 }
-                password = value;
+                password = value; // При успешной проверке - присваивание значения
             }
 		}
 
-		public string Name
+		public string propName // Свойства Name
 		{
 			get { return name; }
 			set { name = value; }
 		}
 	}
+
 	public class Program
 	{
         static void Main(string[] args)
 		{
 			User user = new User();
 
-            user.Login = Console.ReadLine();
-            Console.WriteLine("Логин - {0}", user.Login);
-            user.Password = Console.ReadLine();
-            Console.WriteLine("Пароль - {0}", user.Password);
-            user.Name = Console.ReadLine();
-            Console.WriteLine("Имя - {0}", user.Name);
+            user.propLogin = Console.ReadLine(); // Использование сеттера
+            Console.WriteLine("Логин - {0}", user.propLogin); // Использование геттера
+
+            user.propPassword = Console.ReadLine();
+            Console.WriteLine("Пароль - {0}", user.propPassword);
+
+            user.propName = Console.ReadLine();
+            Console.WriteLine("Имя - {0}", user.propName);
         }
 
     }
