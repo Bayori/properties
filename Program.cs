@@ -7,14 +7,17 @@ namespace usersProject
     {
         private string login, password, name; // Поля
 
-		public string propLogin // Свойства login
-		{
-			get { return login; } // Геттер, возвращает значение
+	public string propLogin // Свойства login
+	{
+            get // Геттер, возвращает значение
+            { 
+                return login; 
+            } 
 
             set // Сеттер, проверка данных
-			{
+	    {
                 if (value.Length < 6 || value.Length > 20) // Длина строки
-				{ 
+		{ 
                     return;
                 }
 
@@ -23,17 +26,20 @@ namespace usersProject
                     return;
                 }
 
-				login = value; // При успешной проверке - присваивание значения
-			}
+		login = value; // При успешной проверке - присваивание значения
 		}
+	     }
 
 
 		public string propPassword // Свойства password
 		{
-			get { return password; } // Геттер, возвращает значение
+	    get 
+            { 
+                return password; 
+            } // Геттер, возвращает значение
 
             set // Сеттер, проверка данных
-			{
+	    {
                 if (value.Length < 6 || value.Length > 20) // Длина строки
                 {
                     return;
@@ -48,20 +54,26 @@ namespace usersProject
                 }
                 password = value; // При успешной проверке - присваивание значения
             }
-		}
+	}
 
 		public string propName // Свойства Name
 		{
-			get { return name; }
-			set { name = value; }
+	            get 
+                    { 
+                         return name; 
+                    }
+	            set 
+                    { 
+                         name = value; 
+                    }
 		}
-	}
+    }
 
 	public class Program
 	{
         static void Main(string[] args)
-		{
-			User user = new User();
+	{
+            User user = new User();
 
             user.propLogin = Console.ReadLine(); // Использование сеттера
             Console.WriteLine("Логин - {0}", user.propLogin); // Использование геттера
